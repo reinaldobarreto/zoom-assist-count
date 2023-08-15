@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+         -->
+    <!-- Arquivos css locais sendo importados -->
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- Arquivo CSS da Biblioteca Intro.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@4.0.0/introjs.min.css">
+
+
+
+    <!-- Arquivos js e jQuery locais sendo importados -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/datatablePT-BR.json"></script>
+    <script src="js/app-zoom.js" defer></script>
+
+  <!-- Arquivo JavaScript da Biblioteca Intro.js -->
+<script src="https://cdn.jsdelivr.net/npm/intro.js@4.0.0/intro.min.js"></script>
+</head>
+
+<body>
+    
+    <div class="container mt-3">
+        <button id="startTutorial" class="btn btn-primary">Iniciar Tutorial</button>
+        <h3>Importar Dados</h3>
+        <div class="input-group mb-3">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputFile">
+                <label class="custom-file-label" for="inputFile">Selecionar arquivo CSV</label>
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="importButton">Importar</button>
+            </div>
+        </div>
+        <br><br>
+        <div class="input-group  mb-3">
+            <button id="filterDuplicates" type="button" class="btn btn-primary">Filtrar Repetidos</button>
+            <button id="undoFilter" type="button" class="btn btn-secondary">Desfazer filtro de
+                repetidos</button>
+
+            <button id="clearHistory" class="btn btn-danger">Limpar Tabela e importação</button>
+            <button id="resetSum" class="btn btn-outline-success">Zera Votação</button>
+            <button id="sumVotes" class="btn btn-info">Somar Votações</button>
+            <div class="input-group  mb-3">
+                <div>
+                    <span class="font-weight-bold ">
+                        <font size="6">Total da Assistência:</font>
+                    </span><span class="font-weight-bold  display-2" id="voteSum"></span>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <br>
+        <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Votação Enquete</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="modal fade" id="dataModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Detalhes da Linha</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" <span
+                        aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped table-bordered">
+                        <tbody>
+                            <tr>
+                                <td>ID</td>
+                                <td id="modalId"></td>
+                            </tr>
+                            <tr>
+                                <td>Nome</td>
+                                <td id="modalName"></td>
+                            </tr>
+                            <tr>
+                                <td>E-mail</td>
+                                <td id="modalEmail"></td>
+                            </tr>
+                            <tr>
+                                <td>Data</td>
+                                <td id="modalDatetime"></td>
+                            </tr>
+                            <tr>
+                                <td>Horário</td>
+                                <td id="modalHora"></td>
+                            </tr>
+                            <tr>
+                                <td>Votação Enquete</td>
+                                <td id="modalVote"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

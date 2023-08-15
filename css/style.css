@@ -1,0 +1,28 @@
+#dataTable th,
+#dataTable td {
+    white-space: nowrap;
+}
+
+
+/* Estilo 3D para a tabela */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    border: 1px solid #dee2e6;
+    padding: 8px;
+}
+
+/* Estilo para os botões do tutorial */
+.introjs-tooltipbuttons {
+    display: flex;
+    justify-content: space-between;
+}
+.introjs-showElement {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  }
+  
